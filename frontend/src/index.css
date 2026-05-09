@@ -1,0 +1,430 @@
+@import "tailwindcss";
+
+/* ======================== GOOGLE FONTS ======================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ======================== CUSTOM THEME ======================== */
+
+@theme {
+  --color-primary: #6366f1;
+  --color-primary-light: #818cf8;
+  --color-primary-dark: #4f46e5;
+  --color-secondary: #06b6d4;
+  --color-accent: #f43f5e;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-dark-bg: #0f172a;
+  --color-dark-card: #1e293b;
+  --color-dark-border: #334155;
+  --color-light-bg: #f1f5f9;
+  --color-light-card: #ffffff;
+  --color-light-border: #e2e8f0;
+}
+
+/* ======================== BASE STYLES ======================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Dark mode default */
+body.dark {
+  background-color: var(--color-dark-bg);
+  color: #e2e8f0;
+}
+
+body.light {
+  background-color: var(--color-light-bg);
+  color: #1e293b;
+}
+
+/* ======================== SCROLLBAR ======================== */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6366f130;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6366f160;
+}
+
+/* ======================== GLASS CARD ======================== */
+
+.glass-card {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.dark .glass-card {
+  background: rgba(30, 41, 59, 0.7);
+}
+
+body.light .glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+/* ======================== INPUT STYLES ======================== */
+
+.input-field {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+body.dark .input-field {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid #334155;
+  color: #e2e8f0;
+}
+
+body.dark .input-field:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+body.light .input-field {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #1e293b;
+}
+
+body.light .input-field:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* ======================== BUTTON ======================== */
+
+.btn-primary {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  padding: 14px 30px;
+  border-radius: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  font-family: inherit;
+  letter-spacing: -0.01em;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.35);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-secondary {
+  padding: 12px 26px;
+  border-radius: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+
+body.dark .btn-secondary {
+  background: rgba(99, 102, 241, 0.1);
+  color: #818cf8;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+body.dark .btn-secondary:hover {
+  background: rgba(99, 102, 241, 0.2);
+}
+
+body.light .btn-secondary {
+  background: rgba(99, 102, 241, 0.08);
+  color: #4f46e5;
+  border: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+body.light .btn-secondary:hover {
+  background: rgba(99, 102, 241, 0.15);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #ef4444, #f43f5e);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+  font-family: inherit;
+}
+
+.btn-danger:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(244, 63, 94, 0.3);
+}
+
+/* ======================== STATUS BADGES ======================== */
+
+.badge-present {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  padding: 5px 16px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.badge-absent {
+  background: rgba(244, 63, 94, 0.15);
+  color: #f43f5e;
+  padding: 5px 16px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* ======================== ANIMATIONS ======================== */
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.15);
+  }
+
+  50% {
+    box-shadow: 0 0 50px rgba(99, 102, 241, 0.3);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+/* ======================== GRADIENT TEXT ======================== */
+
+.gradient-text {
+  background: linear-gradient(135deg, #6366f1, #06b6d4, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ======================== VERIFICATION INDICATORS ======================== */
+
+.verify-success {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.verify-fail {
+  color: #f43f5e;
+  background: rgba(244, 63, 94, 0.1);
+  border: 1px solid rgba(244, 63, 94, 0.2);
+}
+
+.verify-pending {
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+/* ======================== TABLE ======================== */
+
+.data-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.data-table th {
+  padding: 16px 20px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+body.dark .data-table th {
+  color: #94a3b8;
+  border-bottom: 1px solid #334155;
+}
+
+body.light .data-table th {
+  color: #64748b;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.data-table td {
+  padding: 16px 20px;
+  font-size: 0.9rem;
+}
+
+body.dark .data-table tr:hover td {
+  background: rgba(99, 102, 241, 0.04);
+}
+
+body.light .data-table tr:hover td {
+  background: rgba(99, 102, 241, 0.03);
+}
+
+body.dark .data-table td {
+  border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+}
+
+body.light .data-table td {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+/* ======================== WEBCAM ======================== */
+
+.webcam-container {
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.webcam-container video,
+.webcam-container canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+}
+
+/* ======================== SCROLLBAR HIDE ======================== */
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ======================== PAGE LAYOUT HELPERS ======================== */
+
+.page-container {
+  min-height: 100vh;
+  padding-top: 64px; /* navbar height = h-16 = 64px */
+}
+
+.page-content {
+  height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.page-inner {
+  flex: 1;
+  padding: 1.5rem 1rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .page-inner {
+    padding: 1.5rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-inner {
+    padding: 2rem 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .page-inner {
+    padding: 2rem 3rem;
+  }
+}
+
+/* ======================== RESPONSIVE ======================== */
+
+@media (max-width: 768px) {
+  .glass-card {
+    border-radius: 16px;
+  }
+
+  .btn-primary {
+    padding: 12px 22px;
+    font-size: 0.9rem;
+  }
+}

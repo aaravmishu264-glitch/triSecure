@@ -1,0 +1,29 @@
+# Node
+node_modules/
+
+# Build outputs
+dist/
+build/
+coverage/
+
+# Logs
+*.log
+
+# Environment variables
+.env
+.env.*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Vite
+.vite/
+
+# IDE
+.vscode/
+.idea/
+
+# Compiled
+*.tsbuildinfo
+
