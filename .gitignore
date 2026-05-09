@@ -1,29 +1,15 @@
-# Node
-node_modules/
+# dependencies
+node_modules
 
-# Build outputs
-dist/
-build/
-coverage/
+# build outputs
+dist
+build
 
-# Logs
-*.log
-
-# Environment variables
+# env files
 .env
 .env.*
 
-# OS
+# misc
 .DS_Store
 Thumbs.db
-
-# Vite
-.vite/
-
-# IDE
-.vscode/
-.idea/
-
-# Compiled
-*.tsbuildinfo
 
